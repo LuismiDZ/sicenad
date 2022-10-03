@@ -6,6 +6,11 @@
   background-color: #A3B18A;
 }
 
+.btn[disabled]:hover{
+  background-color: #3A5A40;
+  opacity: .65;
+}
+
 h3 {
   color: #354f52; 
   font-weight: bold;

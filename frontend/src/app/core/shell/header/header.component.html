@@ -5,12 +5,15 @@
       <form #loggingForm="ngForm">
         <div class="form-inline">
             <input type="text" class="form-control mr-2 letra" [(ngModel)]="nombreUsuario" placeholder="Nombre del usuario"
-              name="nombre" />
+              name="nombre" required/>
+
             <input type="password" class="form-control mr-2 letra" [(ngModel)]="password" placeholder="Password del usuario"
-              name="password" />
+              name="password" required/>
+            <button class="btn identificar text-white" (click)="comprobarLogging()" [disabled]="!loggingForm.valid">Identificarse</button>
         </div>
+        
       </form>      
-      <a class="btn identificar text-white" (click)="comprobarLogging()">Identificarse</a>
+      
     </div>
     <!-- si ya estas loggeado, te muestra como cerrar sesion -->
     <ng-template #estasLoggeado>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleLeft, faHandMiddleFinger } from '@fortawesome/free-solid-svg-icons';
 import { HeaderComponent } from 'src/app/core/shell/header/header.component';
 import { UsuarioAdministrador } from '../models/usuarioAdministrador';
 import { UsuarioAdministradorImpl } from '../models/usuarioAdministrador-impl';
@@ -11,6 +11,7 @@ import { UsuarioNormalImpl } from '../models/usuarioNormal-impl';
 import { UsuarioAdministradorService } from '../service/usuarioAdministrador.service';
 import { UsuarioGestorService } from '../service/usuarioGestor.service';
 import { UsuarioNormalService } from '../service/usuarioNormal.service';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-usuarios',
@@ -18,6 +19,7 @@ import { UsuarioNormalService } from '../service/usuarioNormal.service';
   styleUrls: ['./usuarios.component.css']
 })
 export class UsuariosComponent implements OnInit {
+  @ViewChild('closebutton') closebutton;
   /**
    * variable del icono "volver"
    */
@@ -210,7 +212,9 @@ export class UsuariosComponent implements OnInit {
       this.usuarioNormalService.getUsuarios().subscribe((response) => {
         localStorage.usuariosNormal = JSON.stringify(this.usuarioNormalService.extraerUsuarios(response));
         console.log(`He borrado el usuario ${usuarioNormal.nombre}`);
-        this.router.navigate([ruta]);
+        this.closebutton.nativeElement.click();
+        //this.router.navigate([ruta]);
+        this.ngOnInit(); 
       });
     });
   }
@@ -219,15 +223,23 @@ export class UsuariosComponent implements OnInit {
    * metodo para editar un usuario normal
    * @param usuarioNormal usuario a editar
    * - actualiza el localStorage
-   */    
+   */ 
+  
   onUsuarioNormalEditar(usuarioNormal: UsuarioNormalImpl): void {
     let ruta: string = (this.idCenad !== undefined) ? `principalCenad/${this.idCenad}/usuarios/${this.idCenad}` : 'usuarios'
     this.usuarioNormalService.update(usuarioNormal).subscribe(response => {
       this.usuarioNormalService.getUsuarios().subscribe((response) => {
         localStorage.usuariosNormal = JSON.stringify(this.usuarioNormalService.extraerUsuarios(response));
         console.log(`He actualizado el usuario ${usuarioNormal.nombre}`);
-        this.router.navigate([ruta]);
-      });
-    });
+        
+        
+        //this.router.navigate([ruta]);
+        document.getElementById('ficha-normal').removeAttribute('disabled');
+        this.closebutton.nativeElement.click();
+        document.getElementById('ficha-normal').setAttribute('disabled', 'disabled');
+        this.ngOnInit();             
+      });      
+    });    
+    
   }
 }

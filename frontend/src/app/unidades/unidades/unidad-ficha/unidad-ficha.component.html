@@ -15,15 +15,15 @@
     <div class="col-lg-6 col-md-12">
       <label class="titulo"><b>TELÉFONO<sup class="text-danger">*</sup></b></label>
       <input type="tel" class="form-control letra" [(ngModel)]="unidad.tfno"
-        placeholder="Teléfono de contacto de la unidad" name="telefono" required minlength="7" maxlength="9"
+        placeholder="Teléfono de contacto de la unidad" name="telefono" required maxlength="9"
         #telefono="ngModel" [ngClass]="{ 'is-invalid': telefono.invalid && (telefono.dirty || telefono.touched),
-        'is-valid': !telefono.invalid }" />
+        'is-valid': !telefono.invalid }" pattern="[0-9]{7,9}"/>
       <div class="text-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
         <div *ngIf="telefono.errors.required">
           El Teléfono de la unidad es obligatorio
         </div>
-        <div *ngIf="telefono.errors.minlength || telefono.errors.maxlength">
-          El Teléfono debe tener 7-9 carácteres
+        <div *ngIf="telefono.errors.pattern">
+          El Teléfono debe ser numerico y tener 7-9 carácteres
         </div>
       </div>
     </div>
@@ -31,7 +31,7 @@
       <label class="titulo"><b>EMAIL<sup class="text-danger">*</sup></b></label>
       <input type="email" class="form-control letra" [(ngModel)]="unidad.email" placeholder="Email de contacto de la unidad" name="email"
         #email="ngModel" [ngClass]="{ 'is-invalid': email.invalid && (email.dirty || email.touched),
-        'is-valid': !email.invalid }"/>
+        'is-valid': !email.invalid }" required email/>
       <div class="text-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
         <div *ngIf="email.errors.required">
           El Email de la unidad es obligatorio

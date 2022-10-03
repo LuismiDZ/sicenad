@@ -4,7 +4,7 @@
   "scripts": {
     "build:prod": "ng build --prod",
     "build:prod:sicenad": "ng build --base-href '/sicenad/' --prod",
-    "http-server": "http-server ./dist/sicenad/ -c-1 -p4272 -a localhost -o",
+    "http-server": "http-server ./dist/sicenad/ -c-1 -p4270 -a localhost -o",
     "start:prod": "npm run build:prod",
     "ng": "ng",
     "start": "ng serve -o --port 4270",
