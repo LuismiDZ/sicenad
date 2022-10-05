@@ -3,17 +3,6 @@
   font-size: 12px;
 }
 
-.row {
-  height: auto;
-  padding: auto;
-  margin: auto;
-}
-
 .row:hover {
   background-color: blanchedalmond;
-}
-
-hr {
-  margin-bottom: 0;
-  margin-top: 0;
 }

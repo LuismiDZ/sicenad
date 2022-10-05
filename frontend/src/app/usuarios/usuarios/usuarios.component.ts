@@ -16,7 +16,7 @@ import { ViewChild } from '@angular/core';
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
-  styleUrls: ['./usuarios.component.css']
+  styleUrls: []
 })
 export class UsuariosComponent implements OnInit {
   @ViewChild('closebutton') closebutton;

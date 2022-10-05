@@ -9,7 +9,7 @@ import { environment } from "src/environments/environment";
 @Component({
   selector: "app-fichero-ficha",
   templateUrl: "./fichero-ficha.component.html",
-  styleUrls: ["./fichero-ficha.component.css"],
+  styleUrls: []
 })
 export class FicheroFichaComponent implements OnInit {
   /**

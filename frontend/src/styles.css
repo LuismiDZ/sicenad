@@ -1,92 +1,125 @@
 /* You can add global styles to this file, and also import other style files */
-.btn {
-    background: #3A5A40;
-    padding: 0.5;
-  font-size: 14px;
-  }
-  
-  .btn:hover {
-    background-color: #A3B18A;
-  }
-  .guardar:hover {
-    background: green;
-  }
-  
-  .guardar[disabled]:hover{
-    background: #A3B18A;
-    opacity: .65;
-  }
-  
-  .eliminar:hover {
-    background: red;
-  }
-  .guardar:hover {
-    background: green;
-  }
-  
-  .guardar[disabled]:hover{
-    background: #A3B18A;
-    opacity: .65;
-  }
-  
-  .eliminar:hover {
-    background: red;
-  }
-  
-  h3 {
-    color: #354f52; 
-    font-weight: bold;
-  }
-
-  h5 {
-    color: #354f52;
-    font-weight: bold;
-  }
-  
-  .titulo, label span, .texto {
-    color: #3A5A40;
-    font-weight: bold;
-  }
-
-  .titulo1, select {
-    color: #588157;
-  }
-  
-  .letra {
-    color: #588157;
-  }
-  
-  a.volver {
-    color: #3A5A40;
-    font-size: 18px;
-  }
-  
-  a.volver:hover {
+div,
+div a {
     color: #A3B18A;
-    font-size: 18px;
+    font-weight: bold;
+}
+
+div.titulos {
+    background-color: #DAD7CD;
   }
 
-  .row {
-    height: 1.5em;
+  div.informacion {
+    border: 6px solid #354f52;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-right: 0px;
+  }
+
+a.volver {
+    color: #3A5A40;
+    font-size: 18px;
+  }
+  
+a.volver:hover{
+color: #A3B18A;
+}
+
+fa-icon:hover {
+    color: #588157;
+}
+
+.row {
+    height: auto;
     padding: auto;
     margin: auto;
-  }
-  
-  hr {
+}
+
+hr {
     margin-bottom: 0;
-    margin-top: 1;
-  }
-  
-  .modal {
+    margin-top: 0;
+}
+
+.modal {
     max-height: 100%;
     max-width: 100%;
     margin: auto;
   }
 
-  div.titulos {
-    background-color: #DAD7CD;
+.btn {
+    background: #3A5A40;
+    background-color: #3A5A40;
+    color: white;
+}
+
+.btn:hover {
+    color: black;
+    text-decoration: none;
+    background-color: #A3B18A;
+  }
+
+.btn[disabled]:hover {
+    background-color: #3A5A40;
+    opacity: .65;
+    color: white;
+}
+
+.titulo {
+    color: #3A5A40;
+}
+
+.titulo1, .texto {
+    color: #588157;
+  }
+
+/* .guardar {
+    background-color: #A3B18A;
+} */
+.guardar:hover {
+    background: green;
+}
+
+/* .guardar[disabled]:hover {
+    background: #3A5A40;
+    opacity: .65;
+    color: white;
+} */
+
+.eliminar:hover {
+    background: red;
+}
+
+.letra, select {
+    color: #588157;
+}
+
+h3 {
+    color: #354f52; 
+    font-weight: bold;
+  }
+
+  h5, h6{
+    color: #354f52; 
+    font-weight: bold
   }
 
   figure { 
     display: inline-block;
+  }
+
+  .texto {
+    white-space: pre-wrap;
+  }
+
+  img.cenad {
+    display: block;
+    width: 365px;
+    height: 533px;
+    align-content: center;
+    margin: auto;
+    padding-bottom: 2px;
+  }
+
+  .text-danger div{
+    color: #dc3545 !important;
   }

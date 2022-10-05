@@ -5,7 +5,7 @@ import { CategoriaFichero } from '../models/categoriaFichero';
 @Component({
   selector: 'app-categoriaFichero',
   templateUrl: './categoriaFichero.component.html',
-  styleUrls: ['./categoriaFichero.component.css']
+ styleUrls: []
 })
 export class CategoriaFicheroComponent implements OnInit {
   /**

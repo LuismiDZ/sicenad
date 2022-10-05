@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-consultaRecurso-form',
   templateUrl: './consultaRecurso-form.component.html',
-  styleUrls: ['./consultaRecurso-form.component.css']
+  styleUrls: []
 })
 export class ConsultaRecursoFormComponent implements OnInit {
   /**

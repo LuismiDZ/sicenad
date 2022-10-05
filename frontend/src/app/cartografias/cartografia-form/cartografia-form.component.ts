@@ -10,7 +10,7 @@ import { CartografiaService } from '../service/cartografia.service';
 @Component({
   selector: 'app-cartografia-form',
   templateUrl: './cartografia-form.component.html',
-  styleUrls: ['./cartografia-form.component.css']
+  styleUrls: []
 })
 export class CartografiaFormComponent implements OnInit {
   /**

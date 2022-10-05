@@ -4,7 +4,7 @@ import { UnidadImpl } from '../../models/unidad-impl';
 @Component({
   selector: 'app-unidad-ficha',
   templateUrl: './unidad-ficha.component.html',
-  styleUrls: ['./unidad-ficha.component.css']
+  styleUrls: []
 })
 export class UnidadFichaComponent implements OnInit {
   /**

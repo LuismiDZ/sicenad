@@ -5,7 +5,7 @@ import { UsuarioGestor } from '../../models/usuarioGestor';
 @Component({
   selector: 'app-usuarioGestor',
   templateUrl: './usuarioGestor.component.html',
-  styleUrls: ['./usuarioGestor.component.css']
+  styleUrls: []
 })
 export class UsuarioGestorComponent implements OnInit {
   /**

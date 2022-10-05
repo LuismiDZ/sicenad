@@ -22,7 +22,7 @@ import { RecursoService } from "../../service/recurso.service";
 @Component({
   selector: "app-recurso-ficha",
   templateUrl: "./recurso-ficha.component.html",
-  styleUrls: ["./recurso-ficha.component.css"],
+  styleUrls: []
 })
 export class RecursoFichaComponent implements OnInit {
   /**

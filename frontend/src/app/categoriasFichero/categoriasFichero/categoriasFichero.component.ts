@@ -9,7 +9,7 @@ import { CategoriaFicheroService } from '../service/categoriaFichero.service';
 @Component({
   selector: 'app-categoriasFichero',
   templateUrl: './categoriasFichero.component.html',
-  styleUrls: ['./categoriasFichero.component.css']
+  styleUrls: []
 })
 export class CategoriasFicheroComponent implements OnInit {
   /**

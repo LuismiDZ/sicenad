@@ -8,7 +8,7 @@ import { UnidadService } from '../service/unidad.service';
 @Component({
   selector: 'app-unidades',
   templateUrl: './unidades.component.html',
-  styleUrls: ['./unidades.component.css']
+  styleUrls: []
 })
 export class UnidadesComponent implements OnInit {
   /**

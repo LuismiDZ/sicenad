@@ -12,7 +12,7 @@ import { environment } from "src/environments/environment";
 @Component({
   selector: "app-fichero",
   templateUrl: "./fichero.component.html",
-  styleUrls: ["./fichero.component.css"],
+  styleUrls: [],
 })
 export class FicheroComponent implements OnInit {
   /**

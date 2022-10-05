@@ -10,7 +10,7 @@ import { CategoriaService } from '../service/categoria.service';
 @Component({
   selector: 'app-categoria-form',
   templateUrl: './categoria-form.component.html',
-  styleUrls: ['./categoria-form.component.css']
+  styleUrls: []
 })
 export class CategoriaFormComponent implements OnInit {
   /**

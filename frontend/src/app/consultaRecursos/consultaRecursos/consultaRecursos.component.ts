@@ -7,7 +7,7 @@ import { RecursoService } from 'src/app/recursos/service/recurso.service';
 @Component({
   selector: 'app-consultaRecursos',
   templateUrl: './consultaRecursos.component.html',
-  styleUrls: ['./consultaRecursos.component.css']
+  styleUrls: []
 })
 export class ConsultaRecursosComponent implements OnInit {
   /**

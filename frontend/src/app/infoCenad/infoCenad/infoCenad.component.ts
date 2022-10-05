@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-infoCenad',
   templateUrl: './infoCenad.component.html',
-  styleUrls: ['./infoCenad.component.css']
+  styleUrls: []
 })
 export class InfoCenadComponent implements OnInit {
   /**

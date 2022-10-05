@@ -7,7 +7,7 @@ import { TipoFormularioService } from '../service/tipoFormulario.service';
 @Component({
   selector: 'app-tipoFormulario-form',
   templateUrl: './tipoFormulario-form.component.html',
-  styleUrls: ['./tipoFormulario-form.component.css']
+  styleUrls: []
 })
 export class TipoFormularioFormComponent implements OnInit {
   /**

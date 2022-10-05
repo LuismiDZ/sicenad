@@ -9,7 +9,7 @@ import { CartografiaService } from '../../service/cartografia.service';
 @Component({
   selector: 'app-cartografia-ficha',
   templateUrl: './cartografia-ficha.component.html',
-  styleUrls: ['./cartografia-ficha.component.css']
+  styleUrls: []
 })
 export class CartografiaFichaComponent implements OnInit {
  /**

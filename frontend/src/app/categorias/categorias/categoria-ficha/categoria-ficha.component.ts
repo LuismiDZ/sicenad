@@ -6,7 +6,7 @@ import { CategoriaImpl } from '../../models/categoria-impl';
 @Component({
   selector: 'app-categoria-ficha',
   templateUrl: './categoria-ficha.component.html',
-  styleUrls: ['./categoria-ficha.component.css']
+  styleUrls: []
 })
 export class CategoriaFichaComponent implements OnInit {
   /**

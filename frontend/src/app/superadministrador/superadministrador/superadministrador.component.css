@@ -29,17 +29,10 @@ div.filtro {
 }
 
 .titulo {
-  color: #3A5A40; 
   font-weight: bold;
-}
-
-.titulo1 {
-  color: #588157;
 }
 
 h5 {
-  color: #354f52; 
-  font-weight: bold;
   background-color:lightgreen;
 }
 
@@ -54,23 +47,6 @@ a.home {
 
 a.home:hover {
   color: #A3B18A;
-}
-
-.row {
-  height: auto;
-  padding: auto;
-  margin: auto;
-}
-
-hr {
-  margin-bottom: 0;
-  margin-top: 0;
-}
-
-.modal {
-  max-height: 100%;
-  max-width: 100%;
-  margin: auto;
 }
 
 div.titulos {

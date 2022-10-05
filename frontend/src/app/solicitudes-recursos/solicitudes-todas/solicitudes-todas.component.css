@@ -5,9 +5,6 @@
 }
 
 .row {
-  height: auto;
-  padding: auto;
-  margin: auto;
   font-size: small;
 }
 
@@ -31,16 +28,7 @@ h6.no-existen {
 }
 
 a.volver {
-  color: #3a5a40;
   font-size: 16px;
-}
-
-a.volver:hover {
-  color: #a3b18a;
-}
-
-select {
-  color: #588157;
 }
 
 label.solicitudes,

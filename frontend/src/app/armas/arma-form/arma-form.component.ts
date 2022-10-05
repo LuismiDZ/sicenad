@@ -10,7 +10,7 @@ import { ArmaService } from '../service/arma.service';
 @Component({
   selector: 'app-arma-form',
   templateUrl: './arma-form.component.html',
-  styleUrls: ['./arma-form.component.css']
+  styleUrls: []
 })
 export class ArmaFormComponent implements OnInit {
   /**

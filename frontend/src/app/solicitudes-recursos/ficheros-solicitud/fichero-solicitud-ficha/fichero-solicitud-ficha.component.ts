@@ -11,7 +11,7 @@ import { SolicitudRecursoService } from '../../service/solicitud-recurso.service
 @Component({
   selector: 'app-fichero-solicitud-ficha',
   templateUrl: './fichero-solicitud-ficha.component.html',
-  styleUrls: ['./fichero-solicitud-ficha.component.css']
+  styleUrls: []
 })
 export class FicheroSolicitudFichaComponent implements OnInit {
   /**

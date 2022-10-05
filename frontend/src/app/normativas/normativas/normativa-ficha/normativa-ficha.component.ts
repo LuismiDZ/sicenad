@@ -8,7 +8,7 @@ import { NormativaService } from '../../service/normativa.service';
 @Component({
   selector: 'app-normativa-ficha',
   templateUrl: './normativa-ficha.component.html',
-  styleUrls: ['./normativa-ficha.component.css']
+  styleUrls: []
 })
 export class NormativaFichaComponent implements OnInit {
   /**

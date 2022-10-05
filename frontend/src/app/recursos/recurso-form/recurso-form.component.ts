@@ -10,7 +10,7 @@ import { RecursoService } from '../service/recurso.service';
 @Component({
   selector: 'app-recurso-form',
   templateUrl: './recurso-form.component.html',
-  styleUrls: ['./recurso-form.component.css']
+  styleUrls: []
 })
 export class RecursoFormComponent implements OnInit {
   /**

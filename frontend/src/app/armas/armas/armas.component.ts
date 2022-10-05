@@ -8,7 +8,7 @@ import { ArmaService } from '../service/arma.service';
 @Component({
   selector: 'app-armas',
   templateUrl: './armas.component.html',
-  styleUrls: ['./armas.component.css']
+  styleUrls: []
 })
 export class ArmasComponent implements OnInit {
   /**

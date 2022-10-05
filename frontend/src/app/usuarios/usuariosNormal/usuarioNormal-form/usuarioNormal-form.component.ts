@@ -8,7 +8,7 @@ import { UsuarioNormalService } from '../../service/usuarioNormal.service';
 @Component({
   selector: 'app-usuarioNormal-form',
   templateUrl: './usuarioNormal-form.component.html',
-  styleUrls: ['./usuarioNormal-form.component.css']
+  styleUrls: []
 })
 export class UsuarioNormalFormComponent implements OnInit {
   /**

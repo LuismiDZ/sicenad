@@ -9,7 +9,7 @@ import { UsuarioGestorService } from '../../service/usuarioGestor.service';
 @Component({
   selector: 'app-usuarioGestor-form',
   templateUrl: './usuarioGestor-form.component.html',
-  styleUrls: ['./usuarioGestor-form.component.css']
+  styleUrls: []
 })
 export class UsuarioGestorFormComponent implements OnInit {
   /**

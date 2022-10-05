@@ -1,20 +1,11 @@
 a.volver {
-  color: #3a5a40;
   font-size: 16px;
-}
-
-a.volver:hover {
-  color: #a3b18a;
 }
 
 .btn {
   background: #588157;
   padding: 0.5;
   font-size: 14px;
-}
-
-.btn:hover {
-  background-color: #a3b18a;
 }
 
 .btn-filtros {
@@ -40,41 +31,14 @@ a.volver:hover {
   font-size: medium;
 }
 
-.titulo1 {
-  color: #588157;
-}
-
-h5,
-h6 {
-  color: #354f52;
-  font-weight: bold;
-}
-
-.modal {
-  max-height: 100%;
-  max-width: 100%;
-  margin: auto;
-}
-
-.row {
-  height: 2em;
-  padding: auto;
-  margin: auto;
-}
-
 hr {
   margin-bottom: 1;
-  margin-top: 0;
 }
 
 hr.separacion {
   margin-bottom: 1;
   margin-top: 5;
   border: 2px solid #354f52;
-}
-
-select {
-  color: #588157;
 }
 
 label span {
@@ -159,10 +123,6 @@ h6.no-existen {
   font-weight: bold;
   text-shadow: 1px 1px 1px #a3b18a;
   background-color: #dad7cd;
-}
-
-.modal {
-  margin: auto;
 }
 
 div.datos-especificos {

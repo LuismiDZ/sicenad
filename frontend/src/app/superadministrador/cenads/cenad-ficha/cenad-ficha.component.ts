@@ -10,7 +10,7 @@ import { CenadService } from "../../service/cenad.service";
 @Component({
   selector: "app-cenad-ficha",
   templateUrl: "./cenad-ficha.component.html",
-  styleUrls: ["./cenad-ficha.component.css"],
+  styleUrls: []
 })
 export class CenadFichaComponent implements OnInit {
   /**

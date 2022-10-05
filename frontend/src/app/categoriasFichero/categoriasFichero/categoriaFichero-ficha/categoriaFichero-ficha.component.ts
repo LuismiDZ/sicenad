@@ -4,7 +4,7 @@ import { CategoriaFicheroImpl } from '../../models/categoriaFichero-impl';
 @Component({
   selector: 'app-categoriaFichero-ficha',
   templateUrl: './categoriaFichero-ficha.component.html',
-  styleUrls: ['./categoriaFichero-ficha.component.css']
+  styleUrls: []
 })
 export class CategoriaFicheroFichaComponent implements OnInit {
   /**

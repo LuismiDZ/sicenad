@@ -6,7 +6,7 @@ import { ArmaImpl } from '../../models/arma-impl';
 @Component({
   selector: 'app-arma-ficha',
   templateUrl: './arma-ficha.component.html',
-  styleUrls: ['./arma-ficha.component.css']
+  styleUrls: []
 })
 export class ArmaFichaComponent implements OnInit {
   /**

@@ -5,7 +5,7 @@ import { TipoFormulario } from '../models/tipoFormulario';
 @Component({
   selector: 'app-tipoFormulario',
   templateUrl: './tipoFormulario.component.html',
-  styleUrls: ['./tipoFormulario.component.css']
+  styleUrls: []
 })
 export class TipoFormularioComponent implements OnInit {
   /**

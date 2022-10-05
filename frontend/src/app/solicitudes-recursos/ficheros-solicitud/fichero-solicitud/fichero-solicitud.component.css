@@ -1,7 +1,5 @@
 div,
 div a {
-  color: #a3b18a;
-  font-weight: bold;
   font-size: 13px;
   text-shadow: 1px 1px 1px #588157;
   text-align: center;
@@ -15,11 +13,4 @@ fa-icon:hover,
 
 .row {
   height: 1.5em;
-  padding: auto;
-  margin: auto;
-}
-
-hr {
-  margin-bottom: 0;
-  margin-top: 0;
 }

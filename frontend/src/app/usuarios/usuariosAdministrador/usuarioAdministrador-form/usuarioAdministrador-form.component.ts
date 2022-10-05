@@ -8,7 +8,7 @@ import { UsuarioAdministradorService } from '../../service/usuarioAdministrador.
 @Component({
   selector: 'app-usuarioAdministrador-form',
   templateUrl: './usuarioAdministrador-form.component.html',
-  styleUrls: ['./usuarioAdministrador-form.component.css']
+  styleUrls: []
 })
 export class UsuarioAdministradorFormComponent implements OnInit {
   /**

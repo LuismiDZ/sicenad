@@ -9,7 +9,7 @@ import { NormativaService } from '../service/normativa.service';
 @Component({
   selector: 'app-normativa',
   templateUrl: './normativa.component.html',
-  styleUrls: ['./normativa.component.css']
+  styleUrls: []
 })
 export class NormativaComponent implements OnInit {
   /**

@@ -6,7 +6,7 @@ import { UsuarioGestorService } from '../../service/usuarioGestor.service';
 @Component({
   selector: 'app-usuarioGestor-ficha',
   templateUrl: './usuarioGestor-ficha.component.html',
-  styleUrls: ['./usuarioGestor-ficha.component.css']
+  styleUrls: []
 })
 export class UsuarioGestorFichaComponent implements OnInit {
   /**

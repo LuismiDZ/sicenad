@@ -7,7 +7,7 @@ import { CategoriaFicheroService } from '../service/categoriaFichero.service';
 @Component({
   selector: 'app-categoriaFichero-form',
   templateUrl: './categoriaFichero-form.component.html',
-  styleUrls: ['./categoriaFichero-form.component.css']
+  styleUrls: []
 })
 export class CategoriaFicheroFormComponent implements OnInit {
   /**

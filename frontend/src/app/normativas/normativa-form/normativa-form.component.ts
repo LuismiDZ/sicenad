@@ -10,7 +10,7 @@ import { NormativaService } from '../service/normativa.service';
 @Component({
   selector: 'app-normativa-form',
   templateUrl: './normativa-form.component.html',
-  styleUrls: ['./normativa-form.component.css']
+  styleUrls: []
 })
 export class NormativaFormComponent implements OnInit {
   /**

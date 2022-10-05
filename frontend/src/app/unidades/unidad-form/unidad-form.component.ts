@@ -7,7 +7,7 @@ import { UnidadService } from '../service/unidad.service';
 @Component({
   selector: 'app-unidad-form',
   templateUrl: './unidad-form.component.html',
-  styleUrls: ['./unidad-form.component.css']
+  styleUrls: []
 })
 export class UnidadFormComponent implements OnInit {
   /**
