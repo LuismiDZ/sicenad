@@ -4,6 +4,7 @@ import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { Arma } from '../models/arma';
 import { ArmaImpl } from '../models/arma-impl';
 import { ArmaService } from '../service/arma.service';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-armas',
@@ -11,6 +12,11 @@ import { ArmaService } from '../service/arma.service';
   styleUrls: []
 })
 export class ArmasComponent implements OnInit {
+  /**
+   * para controlar el botón cerrar del modal
+   */
+  @ViewChild ('closebutton_arma') closebutton_arma;
+
   /**
    * variable que recoge todas las armas
    */
@@ -58,7 +64,11 @@ export class ArmasComponent implements OnInit {
       this.armaService.getArmas().subscribe((response) => {
         localStorage.armas = JSON.stringify(this.armaService.extraerArmas(response));
         console.log(`He borrado el arma ${arma.nombre}`);
-        this.router.navigate(['/armas']);
+        //this.router.navigate(['/armas']);
+        document.getElementById('ficha-arma').removeAttribute('disabled');
+        this.closebutton_arma.nativeElement.click();
+        document.getElementById('ficha-arma').setAttribute('disabled', 'disabled');
+        this.ngOnInit();
       });
     });
   }
@@ -74,7 +84,11 @@ export class ArmasComponent implements OnInit {
       this.armaService.getArmas().subscribe((response) => {
         localStorage.armas = JSON.stringify(this.armaService.extraerArmas(response));
         console.log(`He actualizado el arma ${arma.nombre}`);
-        this.router.navigate(['/armas']);
+        //this.router.navigate(['/armas']);
+        document.getElementById('ficha-arma').removeAttribute('disabled');
+        this.closebutton_arma.nativeElement.click();
+        document.getElementById('ficha-arma').setAttribute('disabled', 'disabled');
+        this.ngOnInit();
       });
     });
   }

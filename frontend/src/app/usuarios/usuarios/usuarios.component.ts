@@ -20,6 +20,8 @@ import { ViewChild } from '@angular/core';
 })
 export class UsuariosComponent implements OnInit {
   @ViewChild('closebutton') closebutton;
+  @ViewChild ('closebutton_admin') closebutton_admin;
+  @ViewChild ('closebutton_gestor') closebutton_gestor;
   /**
    * variable del icono "volver"
    */
@@ -133,7 +135,11 @@ export class UsuariosComponent implements OnInit {
       this.usuarioAdministradorService.getUsuarios().subscribe((response) => {
         localStorage.usuariosAdministrador = JSON.stringify(this.usuarioAdministradorService.extraerUsuarios(response));
         console.log(`He borrado el Administrador ${usuarioAdministrador.nombre}`);
-        this.router.navigate(['/usuarios']);
+        //this.router.navigate(['/usuarios']);
+        document.getElementById('ficha-admin').removeAttribute('disabled');
+        this.closebutton_admin.nativeElement.click();
+        document.getElementById('ficha-admin').setAttribute('disabled', 'disabled');
+        this.ngOnInit();
       });
     });
   }
@@ -148,7 +154,11 @@ export class UsuariosComponent implements OnInit {
       this.usuarioAdministradorService.getUsuarios().subscribe((response) => {
         localStorage.usuariosAdministrador = JSON.stringify(this.usuarioAdministradorService.extraerUsuarios(response));
         console.log(`He actualizado el Administrador ${usuarioAdministrador.nombre}`);
-        this.router.navigate(['/usuarios']);
+        //this.router.navigate(['/usuarios']);
+        document.getElementById('ficha-admin').removeAttribute('disabled');
+        this.closebutton_admin.nativeElement.click();
+        document.getElementById('ficha-admin').setAttribute('disabled', 'disabled');
+        this.ngOnInit();
       });
     });
   }
@@ -172,7 +182,11 @@ export class UsuariosComponent implements OnInit {
       this.usuarioGestorService.getUsuariosGestoresDeCenad(this.idCenad).subscribe((response) => {
         localStorage.setItem(`usuariosGestor_${this.idCenad}`, JSON.stringify(this.usuarioGestorService.extraerUsuarios(response)));
         console.log(`He borrado el gestor ${usuarioGestor.nombre}`);
-        this.router.navigate([`/principalCenad/${this.idCenad}/usuarios/${this.idCenad}`]);
+        //this.router.navigate([`/principalCenad/${this.idCenad}/usuarios/${this.idCenad}`]);
+        document.getElementById('ficha-gestor').removeAttribute('disabled');
+        this.closebutton_gestor.nativeElement.click();
+        document.getElementById('ficha-gestor').setAttribute('disabled', 'disabled');
+        this.ngOnInit();
       });
     });
   }
@@ -188,7 +202,12 @@ export class UsuariosComponent implements OnInit {
       this.usuarioGestorService.getUsuariosGestoresDeCenad(this.idCenad).subscribe((response) => {
         localStorage.setItem(`usuariosGestor_${this.idCenad}`, JSON.stringify(this.usuarioGestorService.extraerUsuarios(response)));
         console.log(`He actualizado el gestor ${usuarioGestor.nombre}`);
-        this.router.navigate([`/principalCenad/${this.idCenad}/usuarios/${this.idCenad}`]);
+        //this.router.navigate([`/principalCenad/${this.idCenad}/usuarios/${this.idCenad}`]);
+        document.getElementById('ficha-gestor').removeAttribute('disabled');
+        this.closebutton_gestor.nativeElement.click();
+        document.getElementById('ficha-gestor').setAttribute('disabled', 'disabled');
+        this.ngOnInit();
+
       });
     });
   }
@@ -207,13 +226,16 @@ export class UsuariosComponent implements OnInit {
    * - actualiza el localStorage
    */  
   onUsuarioNormalEliminar(usuarioNormal: UsuarioNormalImpl): void {
-    let ruta: string = (this.idCenad !== undefined) ? `principalCenad/${this.idCenad}/usuarios/${this.idCenad}` : 'usuarios'
+    //let ruta: string = (this.idCenad !== undefined) ? `principalCenad/${this.idCenad}/usuarios/${this.idCenad}` : 'usuarios'
     this.usuarioNormalService.delete(usuarioNormal).subscribe(response => {
       this.usuarioNormalService.getUsuarios().subscribe((response) => {
         localStorage.usuariosNormal = JSON.stringify(this.usuarioNormalService.extraerUsuarios(response));
         console.log(`He borrado el usuario ${usuarioNormal.nombre}`);
         this.closebutton.nativeElement.click();
         //this.router.navigate([ruta]);
+        document.getElementById('ficha-normal').removeAttribute('disabled');
+        this.closebutton.nativeElement.click();
+        document.getElementById('ficha-normal').setAttribute('disabled', 'disabled');
         this.ngOnInit(); 
       });
     });
@@ -226,13 +248,11 @@ export class UsuariosComponent implements OnInit {
    */ 
   
   onUsuarioNormalEditar(usuarioNormal: UsuarioNormalImpl): void {
-    let ruta: string = (this.idCenad !== undefined) ? `principalCenad/${this.idCenad}/usuarios/${this.idCenad}` : 'usuarios'
+    //let ruta: string = (this.idCenad !== undefined) ? `principalCenad/${this.idCenad}/usuarios/${this.idCenad}` : 'usuarios'
     this.usuarioNormalService.update(usuarioNormal).subscribe(response => {
       this.usuarioNormalService.getUsuarios().subscribe((response) => {
         localStorage.usuariosNormal = JSON.stringify(this.usuarioNormalService.extraerUsuarios(response));
-        console.log(`He actualizado el usuario ${usuarioNormal.nombre}`);
-        
-        
+        console.log(`He actualizado el usuario ${usuarioNormal.nombre}`);       
         //this.router.navigate([ruta]);
         document.getElementById('ficha-normal').removeAttribute('disabled');
         this.closebutton.nativeElement.click();

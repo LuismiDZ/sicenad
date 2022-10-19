@@ -4,6 +4,7 @@ import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { TipoFormulario } from '../models/tipoFormulario';
 import { TipoFormularioImpl } from '../models/tipoFormulario-impl';
 import { TipoFormularioService } from '../service/tipoFormulario.service';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-tiposFormulario',
@@ -11,6 +12,11 @@ import { TipoFormularioService } from '../service/tipoFormulario.service';
   styleUrls: []
 })
 export class TiposFormularioComponent implements OnInit {
+   /**
+   * para controlar el botón cerrar del modal
+   */
+    @ViewChild ('closebutton_tipoForm') closebutton_tipoForm;
+
   /**
    * variable que recoge todos los tipos de formulario
    */
@@ -57,7 +63,11 @@ export class TiposFormularioComponent implements OnInit {
       this.tipoFormularioService.getTiposFormulario().subscribe((response) => {
         localStorage.tiposFormulario = JSON.stringify(this.tipoFormularioService.extraerTiposFormulario(response));
         console.log(`He borrado el Tipo de Formulario ${tipoFormulario.nombre}`);
-        this.router.navigate(['/tiposFormulario']);
+        //this.router.navigate(['/tiposFormulario']);
+        document.getElementById('ficha-tipoForm').removeAttribute('disabled');
+        this.closebutton_tipoForm.nativeElement.click();
+        document.getElementById('ficha-tipoForm').setAttribute('disabled', 'disabled');
+        this.ngOnInit();
       });
     });
   }
@@ -71,7 +81,11 @@ export class TiposFormularioComponent implements OnInit {
       this.tipoFormularioService.getTiposFormulario().subscribe((response) => {
         localStorage.tiposFormulario = JSON.stringify(this.tipoFormularioService.extraerTiposFormulario(response));
         console.log(`He actualizado el Tipo de Formulario ${tipoFormulario.nombre}`);
-        this.router.navigate(['/tiposFormulario']);
+        //this.router.navigate(['/tiposFormulario']);
+        document.getElementById('ficha-tipoForm').removeAttribute('disabled');
+        this.closebutton_tipoForm.nativeElement.click();
+        document.getElementById('ficha-tipoForm').setAttribute('disabled', 'disabled');
+        this.ngOnInit();
       });
     });
   }

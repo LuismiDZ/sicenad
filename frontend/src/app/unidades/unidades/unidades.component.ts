@@ -4,6 +4,7 @@ import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { Unidad } from '../models/unidad';
 import { UnidadImpl } from '../models/unidad-impl';
 import { UnidadService } from '../service/unidad.service';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-unidades',
@@ -11,6 +12,11 @@ import { UnidadService } from '../service/unidad.service';
   styleUrls: []
 })
 export class UnidadesComponent implements OnInit {
+   /**
+   * para controlar el botón cerrar del modal
+   */
+    @ViewChild ('closebutton_unidad') closebutton_unidad;
+
   /**
    * variable boolean que dice si es administrador o no
    */
@@ -88,7 +94,11 @@ export class UnidadesComponent implements OnInit {
       this.unidadService.getUnidades().subscribe((response) => {
         localStorage.unidades = JSON.stringify(this.unidadService.extraerUnidades(response));
         console.log(`He borrado la unidad ${unidad.nombre}`);
-        this.router.navigate([ruta]);
+        //this.router.navigate([ruta]);
+        document.getElementById('ficha-unidad').removeAttribute('disabled');
+        this.closebutton_unidad.nativeElement.click();
+        document.getElementById('ficha-unidad').setAttribute('disabled', 'disabled');
+        this.ngOnInit();
       });
     });
   }
@@ -103,7 +113,11 @@ export class UnidadesComponent implements OnInit {
       this.unidadService.getUnidades().subscribe((response) => {
         localStorage.unidades = JSON.stringify(this.unidadService.extraerUnidades(response));
         console.log(`He actualizado la unidad ${unidad.nombre}`);
-        this.router.navigate([ruta]);
+        //this.router.navigate([ruta]);
+        document.getElementById('ficha-unidad').removeAttribute('disabled');
+        this.closebutton_unidad.nativeElement.click();
+        document.getElementById('ficha-unidad').setAttribute('disabled', 'disabled');
+        this.ngOnInit();
       });
     });
   }

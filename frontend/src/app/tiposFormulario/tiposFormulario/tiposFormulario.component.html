@@ -22,12 +22,12 @@
     <app-tipoFormulario [tipoFormulario]="tipoFormulario" (tipoFormularioSeleccionado)="verDatos($event)"></app-tipoFormulario>
   </div>
   <!-- Modal tipoFormulario-->
-  <div class="modal fade" id="modalTipoFormulario" tabindex="-1" role="dialog" aria-labelledby="datosTipoFormulario" aria-hidden="true">
+  <div data-backdrop="static" data-keyboard="false" class="modal fade" id="modalTipoFormulario" tabindex="-1" role="dialog" aria-labelledby="datosTipoFormulario" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="datosTipoFormulario"><b>Datos Completos del Tipo de Formulario</b> </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button id="ficha-tipoForm" disabled #closebutton_tipoForm type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>

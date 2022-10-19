@@ -4,6 +4,7 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { Cenad } from "../models/cenad";
 import { CenadImpl } from "../models/cenad-impl";
 import { CenadService } from "../service/cenad.service";
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: "app-superadministrador",
@@ -11,6 +12,11 @@ import { CenadService } from "../service/cenad.service";
   styleUrls: ["./superadministrador.component.css"],
 })
 export class SuperadministradorComponent implements OnInit {
+   /**
+   * para controlar el botón cerrar del modal
+   */
+    @ViewChild ('closebutton_cenad') closebutton_cenad;
+    
   /**
    * variable del icono "inicio"
    */
@@ -57,7 +63,11 @@ export class SuperadministradorComponent implements OnInit {
           this.cenadService.extraerCenads(response)
         );
         console.log(`He borrado el CENAD/CMT ${cenad.nombre}`);
-        this.router.navigate(["/superadministrador"]);
+       // this.router.navigate(["/superadministrador"]);
+        document.getElementById('ficha-cenad').removeAttribute('disabled');
+        this.closebutton_cenad.nativeElement.click();
+        document.getElementById('ficha-cenad').setAttribute('disabled', 'disabled');
+        this.ngOnInit();
       });
     });
   }
@@ -73,7 +83,11 @@ export class SuperadministradorComponent implements OnInit {
           this.cenadService.extraerCenads(response)
         );
         console.log(`He actualizado el CENAD/CMT ${cenad.nombre}`);
-        this.router.navigate(["/superadministrador"]);
+        //this.router.navigate(["/superadministrador"]);
+        document.getElementById('ficha-cenad').removeAttribute('disabled');
+        this.closebutton_cenad.nativeElement.click();
+        document.getElementById('ficha-cenad').setAttribute('disabled', 'disabled');
+        this.ngOnInit();
       });
     });
   }

@@ -107,7 +107,7 @@ administradores y normales y si se entra como administrador de un cenad mostrara
   </div>
 </div>
 <!-- Modal usuarioAdministrador-->
-<div class="modal fade" id="modalUsuarioAdministrador" tabindex="-1" role="dialog"
+<div data-backdrop="static" data-keyboard="false" class="modal fade" id="modalUsuarioAdministrador" tabindex="-1" role="dialog"
   aria-labelledby="datosUsuarioAdministrador" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -115,7 +115,7 @@ administradores y normales y si se entra como administrador de un cenad mostrara
         <h5 class="modal-title" id="datosUsuarioAdministrador">
           <b>Datos Completos del Usuario Administrador</b>
         </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button id="ficha-admin" disabled #closebutton_admin type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -134,7 +134,7 @@ administradores y normales y si se entra como administrador de un cenad mostrara
   </div>
 </div>
 <!-- Modal usuarioGestor-->
-<div class="modal fade" id="modalUsuarioGestor" tabindex="-1" role="dialog" aria-labelledby="datosUsuarioGestor"
+<div data-backdrop="static" data-keyboard="false" class="modal fade" id="modalUsuarioGestor" tabindex="-1" role="dialog" aria-labelledby="datosUsuarioGestor"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -142,7 +142,7 @@ administradores y normales y si se entra como administrador de un cenad mostrara
         <h5 class="modal-title" id="datosUsuarioGestor">
           <b>Datos Completos del Usuario Gestor</b>
         </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button id="ficha-gestor" disabled #closebutton_gestor type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>

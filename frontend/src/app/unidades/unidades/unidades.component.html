@@ -22,12 +22,12 @@
     <app-unidad [unidad]="unidad" (unidadSeleccionada)="verDatos($event)"></app-unidad>
   </div>
   <!-- Modal unidad-->
-  <div class="modal fade" id="modalUnidad" tabindex="-1" role="dialog" aria-labelledby="datosUnidad" aria-hidden="true">
+  <div data-backdrop="static" data-keyboard="false" class="modal fade" id="modalUnidad" tabindex="-1" role="dialog" aria-labelledby="datosUnidad" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="datosUnidad"><b>Datos Completos de la Unidad</b> </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button id="ficha-unidad" disabled #closebutton_unidad type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>

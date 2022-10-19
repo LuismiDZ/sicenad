@@ -23,7 +23,7 @@
       </div>
       <div class="col-lg-6 col-md-12">
         <label class="titulo"><b>TIPO DE TIRO<sup class="text-danger">*</sup></b></label>
-        <select name="tipoTiro" id="tipoTiro" [(ngModel)]="arma.tipoTiro">
+        <select name="tipoTiro" id="tipoTiro" [(ngModel)]="arma.tipoTiro" required>
           <option class=" letra" *ngFor="let tipoTiro of tiposTiro" [value]="tipoTiro">{{ tipoTiro }}</option>
         </select>
       </div>

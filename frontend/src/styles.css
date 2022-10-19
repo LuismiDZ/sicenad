@@ -25,6 +25,10 @@ a.volver:hover{
 color: #A3B18A;
 }
 
+a:hover{
+  color: #588157;
+  }
+
 fa-icon:hover {
     color: #588157;
 }
