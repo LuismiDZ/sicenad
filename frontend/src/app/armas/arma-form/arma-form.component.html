@@ -23,9 +23,15 @@
       </div>
       <div class="col-lg-6 col-md-12">
         <label class="titulo"><b>TIPO DE TIRO<sup class="text-danger">*</sup></b></label>
-        <select name="tipoTiro" id="tipoTiro" [(ngModel)]="arma.tipoTiro" required>
+        <select name="tipoTiro" id="tipoTiro" [(ngModel)]="arma.tipoTiro" required #tipoTiro="ngModel" [ngClass]="{ 'is-invalid': tipoTiro.invalid && (tipoTiro.dirty || tipoTiro.touched),
+        'is-valid': !tipoTiro.invalid }" >
           <option class=" letra" *ngFor="let tipoTiro of tiposTiro" [value]="tipoTiro">{{ tipoTiro }}</option>
         </select>
+        <div class="text-danger" *ngIf="tipoTiro.invalid && (tipoTiro.dirty || tipoTiro.touched)">
+          <div *ngIf="tipoTiro.errors.required">
+            El tipo de tiro es obligatorio
+          </div>
+        </div>
       </div>
     </div>
     <div class="form-row justify-content-between pt-5">

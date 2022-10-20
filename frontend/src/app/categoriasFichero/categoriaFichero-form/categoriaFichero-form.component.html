@@ -22,10 +22,15 @@
         </div>
       </div>
       <div class="col-lg-4 col-md-12">
-        <label class="titulo"><b>TIPO<sup class="text-danger">*</sup></b> (0: Imagenes /1: Otros archivos)</label>
-        <input type="number" class="form-control letra" [(ngModel)]="categoriaFichero.tipo" placeholder="Tipo de Categoría de Fichero"
+        <label class="titulo"><b>TIPO<sup class="text-danger">*</sup></b> (Imágenes /Otros archivos)</label>
+        <!-- <input type="number" class="form-control letra" [(ngModel)]="categoriaFichero.tipo" placeholder="Tipo de Categoría de Fichero"
           name="tipo" required #tipo="ngModel" [ngClass]="{ 'is-invalid': tipo.invalid && (tipo.dirty || tipo.touched),
-        'is-valid': !tipo.invalid }" />
+        'is-valid': !tipo.invalid }" /> -->
+        <select name="tipo"  class="form-control letra" [(ngModel)]="categoriaFichero.tipo" required #tipo="ngModel" [ngClass]="{ 'is-invalid': tipo.invalid && (tipo.dirty || tipo.touched),
+        'is-valid': !tipo.invalid }" style="width:200px" >
+          <option value=0>Imágenes</option>
+          <option value=1>Otros archivos</option>
+        </select>
         <div class="text-danger" *ngIf="tipo.invalid && (tipo.dirty || tipo.touched)">
           <div *ngIf="tipo.errors.required">
             El Tipo de Categoría de Fichero es obligatorio
