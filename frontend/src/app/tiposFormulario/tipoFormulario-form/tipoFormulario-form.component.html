@@ -25,10 +25,13 @@
         <label class="titulo"><b>CÓDIGO DEL TIPO DE FORMULARIO<sup class="text-danger">*</sup></b></label>
         <input type="text" class="form-control letra" [(ngModel)]="tipoFormulario.codTipo" placeholder="Código del Tipo de Formulario"
           name="codTipo" required #codTipo="ngModel" [ngClass]="{ 'is-invalid': codTipo.invalid && (codTipo.dirty || codTipo.touched),
-        'is-valid': !codTipo.invalid }" />
+        'is-valid': !codTipo.invalid }" pattern="[0-9]{1,4}" />
         <div class="text-danger" *ngIf="codTipo.invalid && (codTipo.dirty || codTipo.touched)">
           <div *ngIf="codTipo.errors.required">
             El código del Tipo de Formulario es obligatorio
+          </div>
+          <div *ngIf="codTipo.errors.pattern">
+            El código del Tipo debe ser numérico y tener 1-4 carácteres
           </div>
         </div>
       </div>

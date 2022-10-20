@@ -10,6 +10,10 @@ header {
   background: green;
 }
 
+.identificar[disabled]:hover {
+  background-color: #3A5A40;
+}
+
 .cerrar:hover {
   background: red;
 }
