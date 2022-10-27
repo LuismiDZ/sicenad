@@ -5,6 +5,7 @@ import { environment } from "src/environments/environment";
 import { Cartografia } from "../models/cartografia";
 import { CartografiaImpl } from "../models/cartografia-impl";
 import { CartografiaService } from "../service/cartografia.service";
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: "app-cartografias",
@@ -12,6 +13,11 @@ import { CartografiaService } from "../service/cartografia.service";
   styleUrls: []
 })
 export class CartografiasComponent implements OnInit {
+  /**
+   * para controlar el botón cerrar del modal
+   */
+   @ViewChild ('closebutton_cartografia') closebutton_cartografia;
+
   /**
    * variable para recuperar el id del CENAD/CMT
    */
@@ -90,9 +96,13 @@ export class CartografiasComponent implements OnInit {
             )
           );
           console.log(`He borrado la cartografia ${cartografia.nombre}`);
-          this.router.navigate([
-            `/principalCenad/${this.idCenad}/cartografias/${this.idCenad}`,
-          ]);
+          // this.router.navigate([
+          //   `/principalCenad/${this.idCenad}/cartografias/${this.idCenad}`,
+          // ]);
+          document.getElementById('ficha-cartografia').removeAttribute('disabled');
+          this.closebutton_cartografia.nativeElement.click();
+          document.getElementById('ficha-cartografia').setAttribute('disabled', 'disabled');
+          this.ngOnInit();
         });
     });
   }
@@ -114,9 +124,13 @@ export class CartografiasComponent implements OnInit {
             )
           );
           console.log(`He actualizado la cartografia ${cartografia.nombre}`);
-          this.router.navigate([
-            `/principalCenad/${this.idCenad}/cartografias/${this.idCenad}`,
-          ]);
+          // this.router.navigate([
+          //   `/principalCenad/${this.idCenad}/cartografias/${this.idCenad}`,
+          // ]);
+          document.getElementById('ficha-cartografia').removeAttribute('disabled');
+          this.closebutton_cartografia.nativeElement.click();
+          document.getElementById('ficha-cartografia').setAttribute('disabled', 'disabled');
+          this.ngOnInit();
         });
     });
   }

@@ -4,6 +4,7 @@ import { Categoria } from 'src/app/categorias/models/categoria';
 import { Recurso } from '../models/recurso';
 import { RecursoImpl } from '../models/recurso-impl';
 import { RecursoService } from '../service/recurso.service';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-recursos',
@@ -11,6 +12,11 @@ import { RecursoService } from '../service/recurso.service';
   styleUrls: []
 })
 export class RecursosComponent implements OnInit {
+    /**
+   * para controlar el botón cerrar del modal
+   */
+     @ViewChild ('closebutton_recurso') closebutton_recurso;
+
   /**
    * variable para capturar el id del cenad de la barra de navegacion
    */
@@ -75,7 +81,11 @@ export class RecursosComponent implements OnInit {
       this.recursoService.getRecursosDeCenad(this.idCenad).subscribe((response) => {
         localStorage.setItem(`recursos_${this.idCenad}`, JSON.stringify(this.recursoService.extraerRecursos(response)));
         console.log(`He borrado el recurso ${recurso.nombre}`);
-        this.router.navigate([`/principalCenad/${this.idCenad}/recursos/${this.idCenad}`]);
+        //this.router.navigate([`/principalCenad/${this.idCenad}/recursos/${this.idCenad}`]);
+        document.getElementById('ficha-recurso').removeAttribute('disabled');
+        this.closebutton_recurso.nativeElement.click();
+        document.getElementById('ficha-recurso').setAttribute('disabled', 'disabled');
+        this.ngOnInit();
       });
     });
   }
@@ -89,7 +99,11 @@ export class RecursosComponent implements OnInit {
       this.recursoService.getRecursosDeCenad(this.idCenad).subscribe((response) => {
         localStorage.setItem(`recursos_${this.idCenad}`, JSON.stringify(this.recursoService.extraerRecursos(response)));
         console.log(`He actualizado el recurso ${recurso.nombre}`);
-        this.router.navigate([`/principalCenad/${this.idCenad}/recursos/${this.idCenad}`]);
+        //this.router.navigate([`/principalCenad/${this.idCenad}/recursos/${this.idCenad}`]);
+        document.getElementById('ficha-recurso').removeAttribute('disabled');
+        this.closebutton_recurso.nativeElement.click();
+        document.getElementById('ficha-recurso').setAttribute('disabled', 'disabled');
+        this.ngOnInit();
       });
     });
   }

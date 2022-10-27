@@ -40,7 +40,7 @@
     </div>
     <div class="form-row justify-content-between pt-3">
       <div class="col-lg-5 col-md-12 mb-4">
-        <button class="btn text-white" role="button" (click)="crearNormativa()" [disabled]="!normativaForm.form.valid">
+        <button class="btn text-white" role="button" (click)="crearNormativa()" [disabled]="!normativaForm.form.valid || !selectedFiles">
           Crear Normativa
         </button>
       </div>

@@ -23,21 +23,39 @@
       </div>
       <div class="col-lg-3 col-md-12">
         <label class="titulo"><b>CATEGORÍA<sup class="text-danger">*</sup></b></label>
-        <select name="categoria" id="categoria" [(ngModel)]="recurso.categoria">
+        <select name="categoria" id="categoria" [(ngModel)]="recurso.categoria" required #categoria="ngModel" 
+        [ngClass]="{ 'is-invalid': categoria.invalid && (categoria.dirty || categoria.touched),'is-valid': !categoria.invalid }">
           <option class=" letra" *ngFor="let categoria of categorias" [ngValue]="categoria.url">{{ categoria.nombre }}</option>
         </select>
+        <div class="text-danger" *ngIf="categoria.invalid && (categoria.dirty || categoria.touched)">
+          <div *ngIf="categoria.errors.required">
+            La Categoría es obligatoria
+          </div>
+        </div>
       </div>
       <div class="col-lg-3 col-md-12">
         <label class="titulo"><b>GESTOR<sup class="text-danger">*</sup></b></label>
-        <select name="usuarioGestor" id="usuarioGestor" [(ngModel)]="recurso.usuarioGestor">
+        <select name="usuarioGestor" id="usuarioGestor" [(ngModel)]="recurso.usuarioGestor" required #usuarioGestor="ngModel" 
+        [ngClass]="{ 'is-invalid': usuarioGestor.invalid && (usuarioGestor.dirty || usuarioGestor.touched),'is-valid': !usuarioGestor.invalid }">
           <option class=" letra" *ngFor="let gestor of gestores" [ngValue]="gestor.url">{{ gestor.nombre }}</option>
         </select>
+        <div class="text-danger" *ngIf="usuarioGestor.invalid && (usuarioGestor.dirty || usuarioGestor.touched)">
+          <div *ngIf="usuarioGestor.errors.required">
+            El Gestor del recurso es obligatorio
+          </div>
+        </div>
       </div>
        <div class="col-lg-3 col-md-12">
         <label class="titulo"><b>TIPO DE FORMULARIO<sup class="text-danger">*</sup></b></label>
-        <select name="tipoFormulario" id="tipoFormulario" [(ngModel)]="recurso.tipoFormulario">
+        <select name="tipoFormulario" id="tipoFormulario" [(ngModel)]="recurso.tipoFormulario" required #tipoFormulario="ngModel" 
+        [ngClass]="{ 'is-invalid': tipoFormulario.invalid && (tipoFormulario.dirty || tipoFormulario.touched),'is-valid': !tipoFormulario.invalid }">
           <option class=" letra" *ngFor="let tipoFormulario of tiposFormulario" [ngValue]="tipoFormulario.url">{{ tipoFormulario.nombre }}</option>
         </select>
+        <div class="text-danger" *ngIf="tipoFormulario.invalid && (tipoFormulario.dirty || tipoFormulario.touched)">
+          <div *ngIf="tipoFormulario.errors.required">
+            El Tipo de formulario es obligatorio
+          </div>
+        </div>
       </div>
       <div class="col-lg-12 col-md-12 pt-3">
         <label class="titulo"><b>DESCRIPCIÓN<sup class="text-danger">*</sup></b></label>

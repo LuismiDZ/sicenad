@@ -27,13 +27,13 @@
     <app-recurso [recurso]="recurso" *ngIf='recurso' (recursoSeleccionado)="verDatos($event)"></app-recurso>
   </div>
   <!-- Modal recurso-->
-  <div class="modal fade" id="modalRecurso" tabindex="-1" role="dialog" aria-labelledby="datosRecurso"
+  <div data-backdrop="static" data-keyboard="false" class="modal fade" id="modalRecurso" tabindex="-1" role="dialog" aria-labelledby="datosRecurso"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="datosRecurso"><b>Datos Completos del Recurso</b> </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button id="ficha-recurso" disabled #closebutton_recurso type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>

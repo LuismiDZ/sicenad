@@ -19,12 +19,12 @@
     <app-cartografia [cartografia]="cartografia" (cartografiaSeleccionada)="verDatos($event)"></app-cartografia>
   </div>
   <!-- Modal cartografia-->
-  <div class="modal fade" id="modalCartografia" tabindex="-1" role="dialog" aria-labelledby="datosCartografia" aria-hidden="true">
+  <div data-backdrop="static" data-keyboard="false" class="modal fade" id="modalCartografia" tabindex="-1" role="dialog" aria-labelledby="datosCartografia" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="datosCartografia"><b>Datos Completos de la Cartografia</b> </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button id="ficha-cartografia" disabled #closebutton_cartografia type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>

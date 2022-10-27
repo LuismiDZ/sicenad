@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 div,
 div a {
-    color: #A3B18A;
+    color: #3a5a40; 
     font-weight: bold;
 }
 
@@ -126,4 +126,8 @@ h3 {
 
   .text-danger div{
     color: #dc3545 !important;
+  }
+
+  .fc-event-title{
+    color:black;
   }

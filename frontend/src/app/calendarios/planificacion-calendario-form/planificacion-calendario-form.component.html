@@ -27,10 +27,16 @@
     <div class="form-row py-2 justify-content-between">
       <div class="col-lg-3 col-md-12 ml-2 mt-2" *ngIf="isSuperAdmin">
         <label class="mr-2">Unidad: <sup class="text-danger">*</sup></label>
-        <select name="unidad" id="unidad" [(ngModel)]="unidadSeleccionada" required>
+        <select name="unidad" id="unidad" [(ngModel)]="unidadSeleccionada" required #unidad="ngModel" [ngClass]="{
+          'is-invalid': unidad.invalid && (unidad.dirty || unidad.touched),'is-valid': !unidad.invalid}" >          
           <option *ngFor="let unidad of unidades" [value]="unidad.nombre">{{ unidad.nombre | uppercase }}
           </option>
         </select>
+        <div class="text-danger" *ngIf="unidad.invalid && (unidad.dirty || unidad.touched)">
+          <div *ngIf="unidad.errors.required">
+            La Unidad es obligatoria
+          </div>
+        </div>
       </div>
       <div class="col-lg-3 col-md-12 ml-2 mt-2" *ngIf="isAdministrador">
         <label class="mr-2">CENAD/CMT: <sup class="text-danger">*</sup></label>
@@ -78,15 +84,14 @@
           }}</label>
         <select name="categoriasFiltradas" id="categoriasFiltradas" [(ngModel)]="categoriaSeleccionada"
           (change)="filtrar()">
-          <option *ngFor="let categoria of categoriasCenad" [ngValue]="categoria">{{ categoria.nombre | uppercase}}
-          </option>
+          <option *ngFor="let categoria of categoriasCenad" [ngValue]="categoria">{{ categoria.nombre | uppercase}}</option>
         </select>
         <button class="btn-filtros mt-2 ml-1" *ngIf='categoriaSeleccionada' (click)="borrarFiltros()">Borrar Filtros
           Categoria</button>
       </div>
       <div class="col-lg-3 col-md-12 ml-2">
         <label>Recurso: <sup class="text-danger mr-2">*</sup></label>
-        <select name="recursosFiltrados" id="recursosFiltrados" [(ngModel)]="uRlRecursoSeleccionado" required>
+        <select name="recursosFiltrados" id="recursosFiltrados" [(ngModel)]="uRlRecursoSeleccionado" required="required">
           <option *ngFor="let recurso of recursosDeCategoria" [value]="recurso.url">{{ recurso.nombre | uppercase}}
           </option>
         </select>
@@ -127,30 +132,30 @@
     <!--  -->
     <div class="form-row justify-content-center mt-5 pt-3 ml-2">
       <div class="col-lg-5 col-md-12 mb-3" *ngIf="isSuperAdmin">
-        <button class="btn btn-primary" *ngIf="boton; else modificarSuperAdmin" role="button" (click)="create()"
+        <button class="btn" *ngIf="boton; else modificarSuperAdmin" role="button" (click)="create()"
           [disabled]="!solicitudForm.form.valid">
           Crear Planificación
         </button>
         <ng-template #modificarSuperAdmin>
-          <button class="btn btn-primary" role="button" (click)="actualizar()" [disabled]="!solicitudForm.form.valid">
+          <button class="btn" role="button" (click)="actualizar()" [disabled]="!solicitudForm.form.valid">
             Actualizar Planificación
           </button>
-          <button class="btn btn-primary ml-5" role="button" (click)="borrarSolicitud()"
+          <button class="btn ml-5" role="button" (click)="borrarSolicitud()"
             [disabled]="!solicitudForm.form.valid">
             Borrar Planificación
           </button>
         </ng-template>
       </div>
       <div class="col-lg-5 col-md-12 mb-3" *ngIf="isAdministrador">
-        <button class="btn btn-primary" *ngIf="boton; else modificarAdministrador" role="button" (click)="create()"
+        <button class="btn" *ngIf="boton; else modificarAdministrador" role="button" (click)="create()"
           [disabled]="!solicitudForm.form.valid">
           Crear Aviso-Incidencia
         </button>
         <ng-template #modificarAdministrador>
-          <button class="btn btn-primary" role="button" (click)="actualizar()" [disabled]="!solicitudForm.form.valid">
+          <button class="btn" role="button" (click)="actualizar()" [disabled]="!solicitudForm.form.valid">
             Actualizar Aviso-Incidencia
           </button>
-          <button class="btn btn-primary ml-5" role="button" (click)="borrarSolicitud()"
+          <button class="btn ml-5" role="button" (click)="borrarSolicitud()"
             [disabled]="!solicitudForm.form.valid">
             Borrar Aviso-Incidencia
           </button>

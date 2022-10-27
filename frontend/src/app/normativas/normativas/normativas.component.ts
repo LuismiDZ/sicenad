@@ -5,6 +5,7 @@ import { FicheroImpl } from 'src/app/recursos/models/fichero-impl';
 import { AppConfigService } from 'src/app/services/app-config.service';
 import { environment } from 'src/environments/environment';
 import { NormativaService } from '../service/normativa.service';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-normativas',
@@ -12,6 +13,11 @@ import { NormativaService } from '../service/normativa.service';
   styleUrls: []
 })
 export class NormativasComponent implements OnInit {
+   /**
+   * para controlar el botón cerrar del modal
+   */
+    @ViewChild ('closebutton_normativa') closebutton_normativa;
+
   /**
    * variable para recuperar el id del CENAD/CMT
    */
@@ -77,7 +83,11 @@ export class NormativasComponent implements OnInit {
         this.normativaService.getNormativasDeCenad(this.idCenad).subscribe((response) => {
           localStorage.setItem(`normativas_${this.idCenad}`, JSON.stringify(this.normativaService.extraerNormativas(response)));
           console.log(`He borrado la normativa ${normativa.nombre}`);
-          this.router.navigate([`/principalCenad/${this.idCenad}/normativas/${this.idCenad}`]);
+          //this.router.navigate([`/principalCenad/${this.idCenad}/normativas/${this.idCenad}`]);
+          document.getElementById('ficha-normativa').removeAttribute('disabled');
+          this.closebutton_normativa.nativeElement.click();
+          document.getElementById('ficha-normativa').setAttribute('disabled', 'disabled');
+          this.ngOnInit();
         });
       });
     }
@@ -93,7 +103,11 @@ export class NormativasComponent implements OnInit {
         this.normativaService.getNormativasDeCenad(this.idCenad).subscribe((response) => {
           localStorage.setItem(`normativas_${this.idCenad}`, JSON.stringify(this.normativaService.extraerNormativas(response)));
           console.log(`He actualizado la normativa ${normativa.nombre}`);
-          this.router.navigate([`/principalCenad/${this.idCenad}/normativas/${this.idCenad}`]);
+          //this.router.navigate([`/principalCenad/${this.idCenad}/normativas/${this.idCenad}`]);
+          document.getElementById('ficha-normativa').removeAttribute('disabled');
+          this.closebutton_normativa.nativeElement.click();
+          document.getElementById('ficha-normativa').setAttribute('disabled', 'disabled');
+          this.ngOnInit();
         });
       });
     }

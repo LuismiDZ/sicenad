@@ -6,5 +6,5 @@
   "tiempoMaximoLocalStorage": 48,
   "tiposTiro": ["Tiro directo", "Tiro indirecto", "Tiro antiaereo"],
   "hostSicenad": "http://localhost:8081/api/",
-  "categoriaFicheroCartografia": "1"
+  "categoriaFicheroCartografia": "3"
 }

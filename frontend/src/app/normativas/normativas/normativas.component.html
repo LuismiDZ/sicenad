@@ -18,12 +18,12 @@
     <app-normativa [normativa]="normativa" (normativaSeleccionada)="verDatos($event)"></app-normativa>
   </div>
   <!-- Modal normativa-->
-  <div class="modal fade" id="modalNormativa" tabindex="-1" role="dialog" aria-labelledby="datosNormativa" aria-hidden="true">
+  <div data-backdrop="static" data-keyboard="false" class="modal fade" id="modalNormativa" tabindex="-1" role="dialog" aria-labelledby="datosNormativa" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="datosNormativa"><b>Datos Completos de la Normativa</b> </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button id="ficha-normativa" disabled #closebutton_normativa type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>

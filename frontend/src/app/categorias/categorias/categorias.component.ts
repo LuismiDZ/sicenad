@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Categoria } from '../models/categoria';
 import { CategoriaImpl } from '../models/categoria-impl';
 import { CategoriaService } from '../service/categoria.service';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-categorias',
@@ -10,6 +11,11 @@ import { CategoriaService } from '../service/categoria.service';
   styleUrls: []
 })
 export class CategoriasComponent implements OnInit {
+  /**
+   * para controlar el botón cerrar del modal
+   */
+   @ViewChild ('closebutton_categoria') closebutton_categoria;
+
   /**
    * variable para recuperar el id del CENAD/CMT
    */
@@ -62,7 +68,11 @@ export class CategoriasComponent implements OnInit {
         this.categoriaService.getCategoriasDeCenad(this.idCenad).subscribe((response) => {
           localStorage.setItem(`categorias_${this.idCenad}`, JSON.stringify(this.categoriaService.extraerCategorias(response)));
           console.log(`He borrado la Categoria ${categoria.nombre}`);
-          this.router.navigate([`/principalCenad/${this.idCenad}/categorias/${this.idCenad}`]);
+          //this.router.navigate([`/principalCenad/${this.idCenad}/categorias/${this.idCenad}`]);
+          document.getElementById('ficha-categoria').removeAttribute('disabled');
+          this.closebutton_categoria.nativeElement.click();
+          document.getElementById('ficha-categoria').setAttribute('disabled', 'disabled');
+          this.ngOnInit();
         });
       });
     }
@@ -77,7 +87,11 @@ export class CategoriasComponent implements OnInit {
         this.categoriaService.getCategoriasDeCenad(this.idCenad).subscribe((response) => {
           localStorage.setItem(`categorias_${this.idCenad}`, JSON.stringify(this.categoriaService.extraerCategorias(response)));
           console.log(`He actualizado la Categoria ${categoria.nombre}`);
-          this.router.navigate([`/principalCenad/${this.idCenad}/categorias/${this.idCenad}`]);
+          //this.router.navigate([`/principalCenad/${this.idCenad}/categorias/${this.idCenad}`]);
+          document.getElementById('ficha-categoria').removeAttribute('disabled');
+          this.closebutton_categoria.nativeElement.click();
+          document.getElementById('ficha-categoria').setAttribute('disabled', 'disabled');
+          this.ngOnInit();
         });
       });
     }

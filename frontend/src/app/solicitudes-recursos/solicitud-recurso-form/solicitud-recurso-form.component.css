@@ -19,6 +19,12 @@ a.volver {
   background-color: #a3b18a;
 }
 
+.btn[disabled]:hover {
+  background-color: #588157;
+  opacity: .65;
+  color: white;
+}
+
 .titulos {
   color: #3a5a40;
   font-weight: bold;

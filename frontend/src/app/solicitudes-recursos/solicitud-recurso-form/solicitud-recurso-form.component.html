@@ -137,17 +137,15 @@
       <div class="col-lg-3 col-md-12 ml-2 mr-2">
         <label>Redactor (Teléfono): <sup class="text-danger">*</sup></label>
         <input type="text" class="form-control" [(ngModel)]="solicitud.tlfnRedactor"
-          placeholder="RCT UCO/ RCT durante EX" name="tfno" required [readonly]="!isAdministrador && !isBorrador"
-          minlength="7" maxlength="30" #tfno="ngModel" [ngClass]="{
-          'is-invalid': tfno.invalid && (tfno.dirty || tfno.touched),
-          'is-valid': !tfno.invalid
-        }" />
+          placeholder="RCT UCO/RCT durante EX" name="tfno" required [readonly]="!isAdministrador && !isBorrador"
+          maxlength="30" #tfno="ngModel" [ngClass]="{ 'is-invalid': tfno.invalid && (tfno.dirty || tfno.touched),
+          'is-valid': !tfno.invalid}" pattern="[0-9]{7}(\/[0-9]{7})?"/>
         <div class="text-danger" *ngIf="tfno.invalid && (tfno.dirty || tfno.touched)">
           <div *ngIf="tfno.errors.required">
             El teléfono del redactor es obligatorio
           </div>
-          <div *ngIf="tfno.errors.minlength">
-            El teléfono del redactor debe tener al menos 15 caracteres
+          <div *ngIf="tfno.errors.pattern">
+            El teléfono debe tener entre 7 y 15 caracteres, 2 teléfonos separelos con "/" sin espacios en blanco
           </div>
         </div>
       </div>
@@ -1143,29 +1141,29 @@
 
     <div class="form-row justify-content-center mt-5 pt-3 ml-2">
       <div class="col-lg-5 col-md-12 mb-3">
-        <button class="btn btn-primary" *ngIf="boton; else modificar" role="button" (click)="create()"
+        <button class="btn" *ngIf="boton; else modificar" role="button" (click)="create()"
           [disabled]="!solicitudForm.form.valid">
           Crear Solicitud
         </button>
         <ng-template #modificar>
-          <button class="btn btn-primary" role="button" (click)="actualizar()"
+          <button class="btn" role="button" (click)="actualizar()"
             *ngIf="isBorrador || isAdministrador || (isGestor && isValidada)" [disabled]="!solicitudForm.form.valid">
             Actualizar
           </button>
-          <button class="btn btn-primary ml-5" role="button" (click)="tramitarSolicitud()" [hidden]="!isBorrador"
+          <button class="btn ml-5" role="button" (click)="tramitarSolicitud()" [hidden]="!isBorrador"
             [disabled]="!solicitudForm.form.valid">
             Tramitar Solicitud
           </button>
-          <button class="btn btn-primary ml-5" role="button" (click)="validarSolicitud()"
+          <button class="btn ml-5" role="button" (click)="validarSolicitud()"
             [hidden]="(isValidada && !isAdministrador) || (!isValidada && !isAdministrador) || (isValidada && isAdministrador)"
             [disabled]="!solicitudForm.form.valid">
             Validar Solicitud
           </button>
-          <button class="btn btn-primary ml-5" role="button" (click)="borrarSolicitud()" [hidden]="!isBorrador"
+          <button class="btn ml-5" role="button" (click)="borrarSolicitud()" [hidden]="!isBorrador"
             [disabled]="!solicitudForm.form.valid">
             Borrar Solicitud
           </button>
-          <button class="btn btn-primary ml-5" data-toggle="modal" data-target="#modalDisponibilidad" role="button"
+          <button class="btn ml-5" data-toggle="modal" data-target="#modalDisponibilidad" role="button"
             (click)="comprobarDisponibilidad()" *ngIf="isAdministrador && isSolicitada"
             [disabled]="!solicitudForm.form.valid">
             Disponibilidad Recurso
