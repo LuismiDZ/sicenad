@@ -40,7 +40,7 @@ export class CartografiaFormComponent implements OnInit {
   /**
    * variable del archivo seleccionado
    */
-  currentFile: File;
+  currentFile: File;                 
   /**
    * variable booleana que indica si el archivo se ha subido o no
    */

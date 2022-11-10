@@ -6,6 +6,7 @@ import { RecursoService } from "src/app/recursos/service/recurso.service";
 import { AppConfigService } from "src/app/services/app-config.service";
 import { environment } from "src/environments/environment";
 
+
 @Component({
   selector: "app-fichero-ficha",
   templateUrl: "./fichero-ficha.component.html",

@@ -68,10 +68,11 @@
             <button class="btn text-white" (click)='mostrarNuevoFichero()'>Nuevo Fichero</button>
           </div>
         </div>
+<!-- Formulario nuevo FICHERO -->
         <div class="card text-left mt-2" *ngIf='nuevoFichero'>
           <img class="card-img-top" alt="">
           <div class="card-body">
-            <form>
+            <form #ficheroForm="ngForm">
               <div class="col-lg-3 col-md-12">
                 <label class="titulo"><b>NOMBRE<sup class="text-danger">*</sup></b></label>
                 <input type="text" class="form-control letra" [(ngModel)]="fichero.nombre"
@@ -86,10 +87,17 @@
               </div>
               <div class="col-lg-3 col-md-12">
                 <label class="titulo pt-2"><b>CATEGORÍA DE FICHERO<sup class="text-danger">*</sup></b></label>
-                <select name="categoriaFichero" id="categoriaFichero" [(ngModel)]="fichero.categoriaFichero">
+                <select name="categoriaFichero" id="categoriaFichero" [(ngModel)]="fichero.categoriaFichero" 
+                required #name="ngModel" [ngClass]="{ 'is-invalid': name.invalid && (name.dirty || name.touched),
+                'is-valid': !name.invalid }" style="width:200px" >
                   <option class=" letra" *ngFor="let categoriaFichero of categoriasFichero"
                     [ngValue]="categoriaFichero.url">{{ categoriaFichero.nombre }}</option>
                 </select>
+                <div class="text-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+                  <div *ngIf="name.errors.required">
+                    El Tipo de Categoría de Fichero es obligatorio
+                  </div>
+                </div>
               </div>
               <div class="col-lg-12 col-md-12 pt-3">
                 <label class="titulo"><b>DESCRIPCIÓN<sup class="text-danger">*</sup></b></label>
@@ -108,10 +116,11 @@
                 <label class="titulo"><b>ARCHIVO<sup class="text-danger mr-2">*</sup></b> (Tamaño máximo permitido: {{sizeMaxDocRecurso}} MB, salvo imagenes ({{sizeMaxEscudo}} MB))</label>
                 <input type="file" (change)="selectFile($event)" class="form-control" />
               </div>
+              <div class="col-3 text-left pt-2">
+                <button class="btn text-white " (click)='crearFichero()' [disabled]="!ficheroForm.form.valid || !selectedFiles">Crear Fichero</button>
+              </div>
             </form>
-            <div class="col-3 text-left pt-2">
-              <button class="btn text-white " (click)='crearFichero()'>Crear Fichero</button>
-            </div>
+            
           </div>
         </div>
         <!-- se listan los ficheros del recurso -->
@@ -203,14 +212,14 @@
   </div>
 </div>
 <!-- Modal fichero-->
-<div class="modal fade" id="modalFichero" tabindex="-1" role="dialog" aria-labelledby="datosFichero" aria-hidden="true">
+<div data-backdrop="static" data-keyboard="false" class="modal fade" id="modalFichero" tabindex="-1" role="dialog" aria-labelledby="datosFichero" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="datosFichero">
           <b>Datos Completos del Fichero</b>
         </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button id="ficha-Fichero" disabled #closebutton_Fichero type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>

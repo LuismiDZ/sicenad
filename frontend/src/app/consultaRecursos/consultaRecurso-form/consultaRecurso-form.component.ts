@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { CategoriaFichero } from 'src/app/categoriasFichero/models/categoriaFichero';
@@ -10,6 +10,7 @@ import { RecursoImpl } from 'src/app/recursos/models/recurso-impl';
 import { RecursoService } from 'src/app/recursos/service/recurso.service';
 import { AppConfigService } from 'src/app/services/app-config.service';
 import { environment } from 'src/environments/environment';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-consultaRecurso-form',
@@ -17,6 +18,11 @@ import { environment } from 'src/environments/environment';
   styleUrls: []
 })
 export class ConsultaRecursoFormComponent implements OnInit {
+ /**
+   * para controlar el botón cerrar del modal
+   */
+  @ViewChild ('closebutton_Fichero') closebutton_Fichero;
+
   /**
    * variable que define el usuario gestor que accede para modificar recursos
    */
@@ -337,5 +343,9 @@ export class ConsultaRecursoFormComponent implements OnInit {
     this.recursoService.getFicheros(this.idRecurso).subscribe((response) =>
     this.ficheros = this.recursoService.extraerFicheros(response));
     });
+    document.getElementById('ficha-Fichero').removeAttribute('disabled');
+    this.closebutton_Fichero.nativeElement.click();
+    document.getElementById('ficha-Fichero').setAttribute('disabled', 'disabled');
+    this.ngOnInit();
   }
 }
