@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import { CategoriaFichero } from 'src/app/categoriasFichero/models/categoriaFichero';
 import { Fichero } from 'src/app/recursos/models/fichero';
 import { FicheroImpl } from 'src/app/recursos/models/fichero-impl';
 import { AppConfigService } from 'src/app/services/app-config.service';
@@ -52,8 +53,16 @@ export class NormativaFormComponent implements OnInit {
   /**
    * variable que guarda la categoria de fichero de cartografia. Como es indiferente uso esta
    */ 
-  categoriaFicheroCartografia: string = environment.categoriaFicheroCartografia;
+  //categoriaFicheroCartografia: string = environment.categoriaFicheroCartografia;
+  categoriaFichero: string;
 
+  /**
+   * variable para dar al gestor la opcion de elegir que categoria de fichero asignar a cada fichero
+   */
+   categoriasFichero: CategoriaFichero[] = [];
+
+   
+  
   /**
    * 
    * @param normativaService Para usar los metodos propios de Normativa
@@ -68,7 +77,8 @@ export class NormativaFormComponent implements OnInit {
     private appConfigService: AppConfigService) {
     this.hostSicenad = appConfigService.hostSicenad ? appConfigService.hostSicenad : environment.hostSicenad;
     this.sizeMaxDocRecurso = appConfigService.sizeMaxDocRecurso ? appConfigService.sizeMaxDocRecurso : environment.sizeMaxDocRecurso;
-    this.categoriaFicheroCartografia = appConfigService.categoriaFicheroCartografia ? appConfigService.categoriaFicheroCartografia : environment.categoriaFicheroCartografia;
+    //this.categoriaFicheroCartografia = appConfigService.categoriaFicheroCartografia ? appConfigService.categoriaFicheroCartografia : environment.categoriaFicheroCartografia;
+    this.categoriasFichero = JSON.parse(localStorage.categoriasFichero);
   }
 
   /**
@@ -82,7 +92,7 @@ export class NormativaFormComponent implements OnInit {
     this.hostSicenad = this.appConfigService.hostSicenad ? this.appConfigService.hostSicenad : environment.hostSicenad;
     this.pathRelativo = `${this.hostSicenad}files/normativas/${this.idCenad}/`;
     this.normativa.cenad = `${this.hostSicenad}cenads/${this.idCenad}`;
-    this.normativa.categoriaFichero = `${this.hostSicenad}categoriasFichero/${this.categoriaFicheroCartografia}`;
+    this.normativa.categoriaFichero = `${this.hostSicenad}categoriasFichero/${this.categoriaFichero}`;
   }
 
   /**

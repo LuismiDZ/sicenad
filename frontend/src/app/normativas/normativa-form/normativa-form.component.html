@@ -21,6 +21,26 @@
           </div>
         </div>
       </div>
+      
+      <div class="col-lg-4 col-md-12 pt-3 ml-2">
+        <label class="titulo"><b>ARCHIVO<sup class="text-danger ">*</sup></b><br> (Tamaño máximo permitido: {{sizeMaxDocRecurso}} MB))</label>
+        <input type="text" class="form-control" [(ngModel)]="normativa.nombreArchivo" name="archivo" readonly/>
+        <input type="file" (change)="selectFile($event)" class="form-control"/>
+      </div>
+      <div class="col-lg-3 col-md-12">
+        <label class="titulo pt-2"><b>CATEGORÍA DE FICHERO<sup class="text-danger">*</sup></b></label>
+        <select name="categoriaFichero" id="categoriaFichero" [(ngModel)]="normativa.categoriaFichero" 
+        required #name="ngModel" [ngClass]="{ 'is-invalid': name.invalid && (name.dirty || name.touched),
+        'is-valid': !name.invalid }" style="width:200px" >
+          <option class=" letra" *ngFor="let categoriaFichero of categoriasFichero"
+            [ngValue]="categoriaFichero.url">{{ categoriaFichero.nombre }}</option>
+        </select>
+        <div class="text-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+          <div *ngIf="name.errors.required">
+            El Tipo de Categoría de Fichero es obligatorio
+          </div>
+        </div>
+      </div>
       <div class="col-lg-12 col-md-12 pt-3">
         <label><b>DESCRIPCIÓN<sup class="text-danger">*</sup></b></label>
         <textarea class="form-control letra" [(ngModel)]="normativa.descripcion" placeholder="Descripción de la normativa"
@@ -31,11 +51,6 @@
             La descripción de la normativa es obligatoria
           </div>
         </div>
-      </div>
-      <div class="col-lg-4 col-md-12 pt-3 ml-2">
-        <label class="titulo"><b>ARCHIVO<sup class="text-danger ">*</sup></b><br> (Tamaño máximo permitido: {{sizeMaxDocRecurso}} MB))</label>
-        <input type="text" class="form-control" [(ngModel)]="normativa.nombreArchivo" name="archivo" readonly/>
-        <input type="file" (change)="selectFile($event)" class="form-control"/>
       </div>
     </div>
     <div class="form-row justify-content-between pt-3">
