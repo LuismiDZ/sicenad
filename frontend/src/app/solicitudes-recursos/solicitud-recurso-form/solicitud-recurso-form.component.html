@@ -943,7 +943,7 @@
     <!--  -->
     <div class="form-row py-2 mt-2 justify-content-center mr-3">
       <div class="col-lg-12 col-md-12 ml-2">
-        <label class="ml-2">Observaciones: <sup class="text-danger">*</sup></label>
+        <label class="ml-2">Observaciones:</label>
         <input type="text" class="form-control ml-2" name="observacionesUco" [readonly]="!isBorrador"
           [(ngModel)]="solicitud.observaciones" placeholder="Observaciones de la UCO" />
       </div>
@@ -951,7 +951,7 @@
 
     <div class="form-row py-2 mt-2 justify-content-center mr-3">
       <div class="col-lg-12 col-md-12 ml-2">
-        <label class="ml-2">Observaciones CENAD/CMT: <sup class="text-danger">*</sup></label>
+        <label class="ml-2">Observaciones CENAD/CMT:</label>
         <input type="text" class="form-control ml-2" name="observacionesCenad" [readonly]="!isAdministrador"
           [(ngModel)]="solicitud.observacionesCenad" placeholder="Observaciones del CENAD/CMT" />
       </div>

@@ -11,7 +11,7 @@
       <h3 class="titulo1 mr-5 pl-5"><u>SOLICITUDES</u></h3>
     </div>
     <div class="col-2">
-      <div class="text-right mt-0 pt-0" *ngIf="isUserNormal || isAdministrador">
+      <div class="text-right mt-0 pt-0" *ngIf="isUserNormal">
         <button class="btn text-white" [routerLink]="['formulario', idCenad, idSolicitud]">Nueva Solicitud</button>
       </div>
     </div>

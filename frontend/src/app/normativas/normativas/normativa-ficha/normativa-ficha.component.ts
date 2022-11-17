@@ -90,7 +90,7 @@ export class NormativaFichaComponent implements OnInit {
     this.normativa.cenad = `${this.hostSicenad}cenads/${this.idCenad}`;
     //this.normativa.categoriaFichero = `${this.hostSicenad}categoriasFichero/${this.categoriaFichero}`;
     //this.categoriaFichero = `${this.hostSicenad}ficheros/${this.normativa.idFichero}/categoriaFichero`;
-    this.categoriaFichero = this.normativa.categoriaFichero.url;
+    //this.categoriaFichero = this.normativa.categoriaFichero.url;
     console.log ("Normativa: " + this.normativa.categoriaFichero);
     console.log(this.normativa.idFichero)
   }
