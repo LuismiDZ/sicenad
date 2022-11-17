@@ -51,10 +51,12 @@ export class NormativaFormComponent implements OnInit {
    */
   archivoSubido: boolean = false;
   /**
-   * variable que guarda la categoria de fichero de cartografia. Como es indiferente uso esta
-   */ 
+   * variable que guarda la categoria de fichero de cartografia
+  */
   //categoriaFicheroCartografia: string = environment.categoriaFicheroCartografia;
+
   categoriaFichero: string;
+
 
   /**
    * variable para dar al gestor la opcion de elegir que categoria de fichero asignar a cada fichero

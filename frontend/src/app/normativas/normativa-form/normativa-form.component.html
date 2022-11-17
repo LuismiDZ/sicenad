@@ -22,17 +22,17 @@
         </div>
       </div>
       
-      <div class="col-lg-4 col-md-12 pt-3 ml-2">
+      <div class="col-lg-4 col-md-12">
         <label class="titulo"><b>ARCHIVO<sup class="text-danger ">*</sup></b><br> (Tamaño máximo permitido: {{sizeMaxDocRecurso}} MB))</label>
         <input type="text" class="form-control" [(ngModel)]="normativa.nombreArchivo" name="archivo" readonly/>
         <input type="file" (change)="selectFile($event)" class="form-control"/>
       </div>
-      <div class="col-lg-3 col-md-12">
+      <div class="col-lg-4 col-md-12">
         <label class="titulo pt-2"><b>CATEGORÍA DE FICHERO<sup class="text-danger">*</sup></b></label>
         <select name="categoriaFichero" id="categoriaFichero" [(ngModel)]="normativa.categoriaFichero" 
-        required #name="ngModel" [ngClass]="{ 'is-invalid': name.invalid && (name.dirty || name.touched),
-        'is-valid': !name.invalid }" style="width:200px" >
-          <option class=" letra" *ngFor="let categoriaFichero of categoriasFichero"
+        required #name="ngModel" [ngClass]="{'is-invalid': name.invalid && (name.dirty || name.touched),
+        'is-valid': !name.invalid }" style="width:200px" >  
+        <option class="letra" *ngFor="let categoriaFichero of categoriasFichero"
             [ngValue]="categoriaFichero.url">{{ categoriaFichero.nombre }}</option>
         </select>
         <div class="text-danger" *ngIf="name.invalid && (name.dirty || name.touched)">

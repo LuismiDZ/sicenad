@@ -80,6 +80,7 @@ export class CartografiaService {
     cartografia.fechaCartografia = cartografiaApi.fechaCartografia;
     cartografia.url = cartografiaApi._links.self.href;
     cartografia.idCartografia = cartografia.getId(cartografia.url);
+    //cartografia.categoriaFichero = cartografiaApi._links.categoriaFichero.href;
     return cartografia;
   }
 
@@ -120,7 +121,8 @@ export class CartografiaService {
   /**
    * metodo que actualiza de nuestra BD una cartografia
    * @param cartografia Cartografia a editar
-   */  update(cartografia: Cartografia): Observable<any> {
+   */  
+  update(cartografia: Cartografia): Observable<any> {
     return this.http
       .patch<any>(`${this.urlEndPoint}${cartografia.idCartografia}`, cartografia)
       .pipe(

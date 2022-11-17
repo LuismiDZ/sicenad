@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CategoriaFichero } from 'src/app/categoriasFichero/models/categoriaFichero';
 import { FicheroImpl } from 'src/app/recursos/models/fichero-impl';
 import { AppConfigService } from 'src/app/services/app-config.service';
 import { environment } from 'src/environments/environment';
@@ -51,9 +52,15 @@ export class NormativaFichaComponent implements OnInit {
    */
   archivoSubido: boolean = false;
   /**
-   * variable que guarda la categoria de fichero de cartografia. Como es indiferente uso esta
+   * variable que guarda la categoria de fichero de cartografia
    */
-  categoriaFicheroCartografia: string = environment.categoriaFicheroCartografia;
+  //categoriaFicheroCartografia: string = environment.categoriaFicheroCartografia;
+  categoriaFichero: string;
+
+  /**
+   * variable para dar al gestor la opcion de elegir que categoria de fichero asignar a cada fichero
+   */
+   categoriasFichero: CategoriaFichero[] = [];
 
 
   /**
@@ -66,7 +73,9 @@ export class NormativaFichaComponent implements OnInit {
     private appConfigService: AppConfigService) {
     this.hostSicenad = appConfigService.hostSicenad ? appConfigService.hostSicenad : environment.hostSicenad;
     this.sizeMaxDocRecurso = appConfigService.sizeMaxDocRecurso ? appConfigService.sizeMaxDocRecurso : environment.sizeMaxDocRecurso;
-    this.categoriaFicheroCartografia = appConfigService.categoriaFicheroCartografia ? appConfigService.categoriaFicheroCartografia : environment.categoriaFicheroCartografia;
+    //this.categoriaFichero = appConfigService.categoriaFicheroCartografia ? appConfigService.categoriaFicheroCartografia : environment.categoriaFicheroCartografia;
+    this.categoriasFichero = JSON.parse(localStorage.categoriasFichero);
+    
   }
 
   /**
@@ -79,7 +88,11 @@ export class NormativaFichaComponent implements OnInit {
     this.idCenad = this.activateRoute.snapshot.params['idCenad'];
     this.hostSicenad = this.appConfigService.hostSicenad ? this.appConfigService.hostSicenad : environment.hostSicenad;
     this.normativa.cenad = `${this.hostSicenad}cenads/${this.idCenad}`;
-    this.normativa.categoriaFichero = `${this.hostSicenad}categoriasFichero/${this.categoriaFicheroCartografia}`;
+    //this.normativa.categoriaFichero = `${this.hostSicenad}categoriasFichero/${this.categoriaFichero}`;
+    //this.categoriaFichero = `${this.hostSicenad}ficheros/${this.normativa.idFichero}/categoriaFichero`;
+    this.categoriaFichero = this.normativa.categoriaFichero.url;
+    console.log ("Normativa: " + this.normativa.categoriaFichero);
+    console.log(this.normativa.idFichero)
   }
 
   /**

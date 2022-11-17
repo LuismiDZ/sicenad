@@ -55,7 +55,7 @@ export class NormativaService {
 
   /**
    * metodo que extrae el [ ] de cartografias
-   * @param respuestaApi [ ] de ficheros API
+   * @param respuestaApi [ ] de ficheros API 
    * @returns Devuelve un [ ] de Fichero
    */
   extraerNormativas(respuestaApi: any): Fichero[] {
@@ -80,7 +80,8 @@ export class NormativaService {
     normativa.idFichero = normativa.getId(normativa.url);
     this.getCategoriaFichero(normativa.idFichero).subscribe((response) =>
     normativa.categoriaFichero = this.mapearCategoriaFichero(response));
-    return normativa;
+    console.log("Mapeo: " + normativa.categoriaFichero);
+    return normativa;    
   }
 
 /**

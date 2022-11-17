@@ -25,10 +25,13 @@
         <label class="titulo"><b>ESCALA<sup class="text-danger">*</sup></b></label>
         <input type="text" class="form-control letra" [(ngModel)]="cartografia.escala" placeholder="Escala de la cartografia"
           name="escala" required #escala="ngModel" [ngClass]="{ 'is-invalid': escala.invalid && (escala.dirty || escala.touched),
-        'is-valid': !escala.invalid }" />
+        'is-valid': !escala.invalid }" pattern="1:[0-9]{3,6}"/>
         <div class="text-danger" *ngIf="escala.invalid && (escala.dirty || escala.touched)">
           <div *ngIf="escala.errors.required">
             La escala de la cartografia es obligatorio
+          </div>
+          <div *ngIf="escala.errors.pattern">
+            El formato de la escala = 1:25000
           </div>
         </div>
       </div>
@@ -43,7 +46,21 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-12">
+      <div class="col-lg-4 col-md-12 pt-4">
+        <label class="titulo pt-2"><b>CATEGORÍA DE FICHERO<sup class="text-danger">*</sup></b></label>
+        <select name="categoriaFichero" id="categoriaFichero" [(ngModel)]="cartografia.categoriaFichero" 
+        required #name="ngModel" [ngClass]="{'is-invalid': name.invalid && (name.dirty || name.touched),
+        'is-valid': !name.invalid }" style="width:200px" >  
+        <option class="letra" *ngFor="let categoriaFichero of categoriasFichero"
+            [ngValue]="categoriaFichero.url">{{ categoriaFichero.nombre }}</option>
+        </select>
+        <div class="text-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+          <div *ngIf="name.errors.required">
+            El Tipo de Categoría de Fichero es obligatorio
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12 pt-4">
         <label class="titulo"><b>DESCRIPCIÓN<sup class="text-danger">*</sup></b></label>
         <textarea class="form-control letra" [(ngModel)]="cartografia.descripcion" placeholder="Descripción de la cartografia"
           name="descripcion" required #descripcion="ngModel" [ngClass]="{ 'is-invalid': descripcion.invalid && (descripcion.dirty || descripcion.touched),
@@ -54,7 +71,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-6 col-md-12 pt-3">
+      <div class="col-lg-4 col-md-12 pt-4">
         <label class="titulo"><b>ARCHIVO<sup class="text-danger mr-2">*</sup></b> (Tamaño máximo permitido: {{sizeMaxCartografia}} GB)</label>
         <input type="file" (change)="selectFile($event)" class="form-control" />
       </div>

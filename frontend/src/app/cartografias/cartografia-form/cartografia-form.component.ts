@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faArrowAltCircleLeft } from '@fortawesome/free-solid-svg-icons';
+import { CategoriaFichero } from 'src/app/categoriasFichero/models/categoriaFichero';
 import { AppConfigService } from 'src/app/services/app-config.service';
 import { environment } from 'src/environments/environment';
 import { Cartografia } from '../models/cartografia';
@@ -49,10 +50,19 @@ export class CartografiaFormComponent implements OnInit {
    * variable que marca el tamaño maximo de la cartografia a subir
    */
   sizeMaxCartografia: number = environment.sizeMaxCartografia;
+  
   /**
    * variable que guarda la categoria de fichero de cartografia
+   **/
+
+  categoriaFichero: string;
+
+
+  /**
+   * variable para dar al gestor la opcion de elegir que categoria de fichero asignar a cada fichero
    */
-  categoriaFicheroCartografia: string = environment.categoriaFicheroCartografia;
+   categoriasFichero: CategoriaFichero[] = [];
+
 
   /**
    *
@@ -60,16 +70,17 @@ export class CartografiaFormComponent implements OnInit {
    * @param router Para redirigir
    * @param activateRoute Para capturar el id de la barra de navegación
    * @param appConfigService Para usar las variables del `properties`
+   * @param categoriasFichero Para el desplegable de categoría Fichero
    */
   constructor(
     private cartografiaService: CartografiaService,
     private router: Router,
     private activateRoute: ActivatedRoute,
     private appConfigService: AppConfigService) {
-      this.hostSicenad = appConfigService.hostSicenad ? appConfigService.hostSicenad : environment.hostSicenad;
-      this.sizeMaxCartografia = appConfigService.sizeMaxCartografia ? appConfigService.sizeMaxCartografia : environment.sizeMaxCartografia;
-      this.categoriaFicheroCartografia = appConfigService.categoriaFicheroCartografia ? appConfigService.categoriaFicheroCartografia : environment.categoriaFicheroCartografia;
-
+    this.hostSicenad = appConfigService.hostSicenad ? appConfigService.hostSicenad : environment.hostSicenad;
+    this.sizeMaxCartografia = appConfigService.sizeMaxCartografia ? appConfigService.sizeMaxCartografia : environment.sizeMaxCartografia;
+    //this.categoriaFicheroCartografia = appConfigService.categoriaFicheroCartografia ? appConfigService.categoriaFicheroCartografia : environment.categoriaFicheroCartografia;
+    this.categoriasFichero = JSON.parse(localStorage.categoriasFichero);
     }
     /**
      * - recuperamos el id del CENAD de la barra de navegacion
@@ -82,7 +93,6 @@ export class CartografiaFormComponent implements OnInit {
     this.hostSicenad = this.appConfigService.hostSicenad ? this.appConfigService.hostSicenad : environment.hostSicenad;
     this.pathRelativo = `${this.hostSicenad}files/cartografias/${this.idCenad}/`;
     this.cartografia.cenad = `${this.hostSicenad}cenads/${this.idCenad}`;
-    this.cartografia.categoriaFichero = `${this.hostSicenad}categoriasFichero/${this.categoriaFicheroCartografia}`;
   }
 
   /**
